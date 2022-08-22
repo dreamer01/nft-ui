@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 function Bid({ price, token, onClose }) {
-  const [bidValue, setBid] = useState(price[token]);
+  const [bidValue, setBid] = useState(price ? price[token] : 0);
 
   const handleConfirm = () => {
-    window.localStorage.setItem(
-      'tokensPrice',
-      JSON.stringify({ ...price, [token]: bidValue })
-    );
+    price &&
+      window.localStorage.setItem(
+        'tokensPrice',
+        JSON.stringify({ ...price, [token]: bidValue })
+      );
     onClose();
   };
 
@@ -27,7 +28,7 @@ function Bid({ price, token, onClose }) {
       >
         <img className='w-1/2' src={`/img/tokens/${token}.png`} />
         <div className='p-4 flex-col h-full justify-between'>
-          <p className='font-bold text-2xl'>{price[token]} ETH</p>
+          <p className='font-bold text-2xl'>{price && price[token]} ETH</p>
           <div className='mt-16'>
             <label
               className='block text-gray-700 text-sm font-bold mb-2'
