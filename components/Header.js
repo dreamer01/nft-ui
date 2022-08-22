@@ -7,7 +7,7 @@ function Header() {
         <img className='w-12' src='/img/logo.png' />
         <h2 className='pl-4 text-pink-600 font-bold text-2xl'>Myx Tokens</h2>
       </div>
-      <img className='w-12' src='/img/logo.png' />
+      <img className='w-12' src='/img/wallet.png' />
     </div>
   );
 }
